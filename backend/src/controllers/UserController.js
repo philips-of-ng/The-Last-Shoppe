@@ -130,6 +130,7 @@ const sendLoginCode = async (request, response) => {
 }
 
 
+//LOG IN AN EXISTING USER
 export const loginUser = async (request, response) => {
 
   const userCredentials = request.body
@@ -149,10 +150,16 @@ export const loginUser = async (request, response) => {
     if (user && pwMatched) {
       console.log('Access Granted', user);
       response.status(200).json({ message: 'Access Granted', details: user })
-    } else if (!user) {
+    } 
+    
+    if (!user) {
       response.status(404).json({ message: 'Wrong Credentials' })
-    } else if (!pwMatched) {
-      response.status(500).json({ message: 'wrong password' })
+    } 
+    
+    if (!pwMatched) {
+      console.log('Passwords do not match');
+      
+      response.status(401).json({ message: 'wrong password' })
     }
   } catch (error) {
     response.status(400).json({ message: `Error from try-catch in backend ${error}` })

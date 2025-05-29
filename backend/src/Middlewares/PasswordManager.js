@@ -17,7 +17,7 @@ export const comparePasswords = async (plainPassword, storeHashedPassword) => {
       console.log('Password Matches.');
       return true
     } else {
-      console.log('Password doesnt match');
+      // console.log('Password doesnt match');
       return false
     }
   } catch (error) {
