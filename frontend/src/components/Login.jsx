@@ -7,12 +7,13 @@ import axios from 'axios'
 import { toast } from 'react-toastify'
 import Spinner from './Spinner'
 
-// import { AuthContext } from '../context/AuthContext'
+import { AuthContext } from '../context/AuthContext'
 
 const Login = ({ setDisplay }) => {
 
   //stuffs from context API
-  // const { login, pwTrial, handleTrialCount } = useContext(AuthContext)
+
+  const { login, pwTrial, handleTrialCount } = useContext(AuthContext)
 
   // useEffect(() => {
   //   console.log('Number of Password Trials', pwTrial);

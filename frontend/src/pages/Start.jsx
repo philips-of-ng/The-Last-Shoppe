@@ -10,7 +10,7 @@ import Login from '../components/Login';
 import SignUp from '../components/SignUp';
 import axios from 'axios';
 import ForgotPassword from '../components/ForgotPassword';
-import Spinner from '../components/spinner';
+import Spinner from '../components/Spinner';
 
 const Start = () => {
 
