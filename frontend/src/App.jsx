@@ -10,6 +10,7 @@ import { AuthContext } from './context/AuthContext';
 // import View from './pages/View';
 import AdminDashboard from './pages/AdminDashboard';
 import Home from './pages/Home';
+import OneProduct from './components/OneProduct';
 function App() {
 
   const { user } = useContext(AuthContext)
@@ -28,8 +29,15 @@ function App() {
   return (
     <Routes>
     
-      <Route path='/*' element={<RouteHandler user={user} />} />
+      //This is the original code
+      {/* <Route path='/*' element={<RouteHandler user={user} />} /> */}
 
+
+      //This is just for testing components
+
+      { 
+        <Route path='/*' element={<OneProduct />} />
+      }
     </Routes>
   );
 }
