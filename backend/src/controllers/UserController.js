@@ -256,5 +256,9 @@ export const changePassword_ResetMode = async (request, response) => {
 
 }
 
+const filterProduct = (request, response) => {
+  console.log(request);
+  
+}
 
 

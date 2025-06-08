@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import Start from './pages/Start';
+import './app.css'
 import { useContext, useEffect } from 'react';
 
 import { ToastContainer, toast } from 'react-toastify';
@@ -22,7 +23,7 @@ function App() {
     console.log('This is the user from Auth Context', user);
   }, [user]);
 
-  const testProduct = products.slice(0, 1)[0]
+  const testProduct = products.slice(1, 2)[0]
   console.log('These are the assets imported in the APP.JSX file', testProduct);
 
   const RouteHandler = ({ user }) => {

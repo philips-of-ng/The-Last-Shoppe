@@ -1,9 +1,122 @@
-.one-product-page {
-  width: 100%;
-  height: 100vh;
-  border: 2px solid red;
+:root {
+  --the-blue: #004cff;
+  --light-grey: rgb(240, 240, 240);
 }
 
-.one-product-page > img {
+.one-product-page {
   width: 100%;
+  border: 2px solid red;
+  margin-bottom: 100px;
+}
+
+.one-product-page>img {
+  width: 100%;
+}
+
+
+.right-arrow-btn {
+  color: white;
+  background-color: #004cff;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  border: none;
+}
+
+.images-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.images-top>* {
+  margin: 0;
+}
+
+.images-main {
+  display: flex;
+  gap: 12px;
+  overflow-x: scroll;
+  padding: 12px 0px;
+}
+
+.images-main img {
+  width: 120px;
+  border-radius: 12px;
+  /* border: 1px solid var(--the-blue); */
+}
+
+.sizes {
+  padding: 5px;
+  display: flex;
+  gap: 10px;
+}
+
+.sizes button {
+  background-color: var(--light-grey);
+  padding: 3px 15px;
+  border: none;
+  border-radius: 5px;
+}
+
+.active-size {
+  border: 3px solid rgb(214, 165, 30) !important;
+}
+
+.main-buttons-container {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  background-color: white;
+}
+
+.main-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  width: 100%;
+}
+
+.wish-btn {
+  width: 60px;
+  height: 60px;
+  font-size: 40px;
+  font-weight: 100 !important;
+  border: 2px solid black;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wish-btn i {
+  font-weight: 200 !important;
+}
+
+.buy-now-btn {
+  color: white;
+  background-color: black;
+  padding: 15px 35px;
+  border-radius: 15px;
+  border: none;
+  font-size: 1.1em;
+  font-weight: 500;
+}
+
+.add-to-cart {
+  color: white;
+  background-color: var(--the-blue);
+  padding: 15px 35px;
+  border: none;
+  border-radius: 15px;
+  font-size: 1.1em;
+  font-weight: 500;
 }
