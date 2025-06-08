@@ -1,5 +1,6 @@
 :root {
   --the-blue: #004cff;
+  --the-light-blue: #dee8ff;
   --light-grey: rgb(240, 240, 240);
 }
 
@@ -99,6 +100,7 @@
 
 .wish-btn i {
   font-weight: 200 !important;
+  color: #004cff !important;
 }
 
 .buy-now-btn {
@@ -119,4 +121,49 @@
   border-radius: 15px;
   font-size: 1.1em;
   font-weight: 500;
+}
+
+.avg-stars {
+  display: flex;
+  justify-content: start;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.avg-stars p {
+  margin: 0;
+  /* color: grey; */
+  background-color: var(--the-light-blue);
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+.one-review {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.one-review img {
+  border: 5px solid white;
+  border-radius: 100%;
+  box-shadow: 1px 1px 15px 3px rgba(0, 0, 0, 0.5);
+  width: 70px;
+}
+
+.one-review div p {
+  font-weight: 500;
+  font-size: 1.2em;
+  margin: 0;
+}
+
+.big-blue-btn {
+  width: 100%;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--the-blue);
+  color: white;
 }
