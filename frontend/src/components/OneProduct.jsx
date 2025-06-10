@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import '../css/one-product.css'
 import { assets } from '../assets/images/images';
+import NavBar from './NavBar';
 
 const OneProduct = ({ product }) => {
 
@@ -10,10 +11,12 @@ const OneProduct = ({ product }) => {
 
   const [mainImage, setMainImage] = useState(product.image[0])
   const [activeSize, setActiveSize] = useState(product.sizes[0])
+  const [inWishList, setInWishList] = useState(false)
 
   return (
 
     <>
+    <NavBar />
       <div className='one-product-page'>
 
         <img src={mainImage} alt="" />
@@ -67,7 +70,15 @@ const OneProduct = ({ product }) => {
 
         <div className='main-buttons-container'>
           <div className='main-buttons'>
-            <button className='wish-btn'>< i class='bxr  bx-heart'  ></i> </button>
+            <button className='wish-btn' onClick={() => setInWishList((prev) => !prev)}>
+              {
+                inWishList ? (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 512 512" fill="#004cff"><path fill="#004cff" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z" /></svg>
+                ) : (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="#000000"><path fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78l1.06-1.06a5.5 5.5 0 0 0 0-7.78z" /></svg>
+                )
+              }
+            </button>
 
             <button className='buy-now-btn'>Buy Now</button>
             <button className='add-to-cart'>Add to Cart</button>

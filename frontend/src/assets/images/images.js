@@ -28,7 +28,7 @@ import cat_shoes_03 from './cat_shoes_03.png';
 import cat_shoes_04 from './cat_shoes_04.png';
 import shoppe_banner_new from './shoppe_banner.png';
 
-export const assets = {
+export const asset_images = {
   first_logo,
   right_arrow,
   upload_image,
