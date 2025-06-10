@@ -1,9 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import '../css/navbar.css'
 import { assets_2 } from '../assets/assets/assets'
 import { asset_images } from '../assets/images/images'
+import { useLocation } from 'react-router-dom'
 
 const NavBar = () => {
+
+  const location = useLocation()
+  useEffect(() => {
+    console.log('This is the current location of the app according to the navbar', location());
+
+  }, [])
+
   return (
     <div className='navbar'>
       <div className='logo-div'>
