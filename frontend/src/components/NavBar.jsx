@@ -8,7 +8,7 @@ const NavBar = () => {
 
   const location = useLocation()
   useEffect(() => {
-    console.log('This is the current location of the app according to the navbar', location());
+    console.log('This is the current location of the app according to the navbar', location);
 
   }, [])
 
@@ -20,9 +20,9 @@ const NavBar = () => {
       </div>
 
       <div className='nav-div'>
-        <button className='cart-btn'><i class="fa-solid fa-bag-shopping"></i> <span>4</span></button>
+        <button className='cart-btn'><i className="fa-solid fa-bag-shopping"></i> <span>4</span></button>
 
-        <button className='menu-btn'><i class="fa-solid fa-bars"></i></button>
+        <button className='menu-btn'><i className="fa-solid fa-bars"></i></button>
       </div>
     </div>
   )

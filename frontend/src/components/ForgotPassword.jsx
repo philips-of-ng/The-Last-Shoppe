@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import '../css/fgt-password.css';
 import axios from 'axios';
-import { assets } from '../assets/images/images';
+import { asset_images } from '../assets/images/images';
 import { toast } from 'react-toastify';
 import Spinner from './spinner';
 

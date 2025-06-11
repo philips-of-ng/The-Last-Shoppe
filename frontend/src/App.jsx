@@ -11,7 +11,7 @@ import AdminDashboard from './pages/AdminDashboard';
 import Home from './pages/Home';
 
 // Component Testing
-import OneProduct from './components/OneProduct';
+import OneProduct from './components/OneProductPage';
 import { products } from './assets/assets/assets';
 
 function App() {

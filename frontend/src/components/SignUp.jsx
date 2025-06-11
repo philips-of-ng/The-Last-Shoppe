@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { assets } from '../assets/images/images';
+import { asset_images } from '../assets/images/images';
 import '../css/start.css';
 import '../css/signup.css'
 import { toast } from 'react-toastify';

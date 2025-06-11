@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import '../css/start.css'
-import { assets } from '../assets/images/images'
+import { asset_images } from '../assets/images/images'
 import { useState } from 'react'
 
 
@@ -10,7 +10,7 @@ import Login from '../components/Login';
 import SignUp from '../components/SignUp';
 import axios from 'axios';
 import ForgotPassword from '../components/ForgotPassword';
-import Spinner from '../components/Spinner';
+import Spinner from '../components/spinner';
 
 const Start = () => {
 

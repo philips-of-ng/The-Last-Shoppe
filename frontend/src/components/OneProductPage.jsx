@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import '../css/one-product.css'
-import { assets } from '../assets/images/images';
+import { asset_images } from '../assets/images/images';
 import NavBar from './NavBar';
 
 const OneProduct = ({ product }) => {
@@ -16,7 +16,7 @@ const OneProduct = ({ product }) => {
   return (
 
     <>
-    <NavBar />
+      <NavBar />
       <div className='one-product-page'>
 
         <img src={mainImage} alt="" />
@@ -107,7 +107,7 @@ const OneProduct = ({ product }) => {
           <div className='reviews-section-main'>
 
             <div className='one-review'>
-              <img src={assets.user_image} alt="" />
+              <img src={asset_images.user_image} alt="" />
 
               <div>
                 <p>Philips Edun</p>
@@ -129,6 +129,17 @@ const OneProduct = ({ product }) => {
 
             <button className='big-blue-btn'>View All Reviews</button>
           </div>
+        </div>
+
+        {/* THIS IS THE SECTION FOR SUGGESTED PRODUCTS */}
+        <div className='you-might-like'>
+           <h2 className='p-3'>You might like</h2>
+
+           <div className='yml-main'>
+              <div className=''>
+
+              </div>
+           </div>
         </div>
       </div>
     </>

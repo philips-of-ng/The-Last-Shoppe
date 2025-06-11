@@ -7,10 +7,10 @@
 .navbar {
   height: 70px;
   width: 100%;
-  border: 2px solid green;
+  /* border: 2px solid green; */
   position: sticky;
   top: -1px;
-  background-color: whitesmoke;
+  background-color: white;
   display: flex;
   align-items: center;
   justify-content: space-between;

@@ -2,10 +2,10 @@ import React, { useContext, useEffect, useState } from 'react'
 // import '../css/start.css'
 import '../css/login.css'
 import { useRef } from 'react'
-import { assets } from '../assets/images/images'
+import { asset_images } from '../assets/images/images'
 import axios from 'axios'
 import { toast } from 'react-toastify'
-import Spinner from './Spinner'
+import Spinner from './spinner'
 
 import { AuthContext } from '../context/AuthContext'
 
