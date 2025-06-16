@@ -36,10 +36,10 @@ function App() {
     <>
       <Routes>
         {/* This is the original code */}
-        {/* <Route path='/*' element={<RouteHandler user={user} />} /> */}
+        <Route path='/*' element={<RouteHandler user={user} />} />
 
         {/* This is just for testing components */}
-        <Route path='/*' element={<OneProduct product={testProduct} />} />
+        {/* <Route path='/*' element={<OneProduct product={testProduct} />} /> */}
       </Routes>
 
       <ToastContainer />

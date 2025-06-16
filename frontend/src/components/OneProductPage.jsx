@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react'
 import '../css/one-product.css'
 import { asset_images } from '../assets/images/images';
 import NavBar from './NavBar';
+import OneProductBox from './OneProductBox';
+
+import { products } from '../assets/assets/assets';
 
 const OneProduct = ({ product }) => {
 
@@ -9,9 +12,31 @@ const OneProduct = ({ product }) => {
     console.log('This is the test product', product);
   }, [])
 
+  const testProduct = products.slice(0, 1)[0]
+  console.log('This is the YML product for test', testProduct);
+
   const [mainImage, setMainImage] = useState(product.image[0])
   const [activeSize, setActiveSize] = useState(product.sizes[0])
   const [inWishList, setInWishList] = useState(false)
+
+  //This is the similar products system
+  const [similarProducts, setSimilarProducts] = useState([])
+
+  const SortProduct = (products, theCategory) => {
+    const sortedProducts = products.filter(product => product.category.toLowerCase() === theCategory.toLowerCase())
+    console.log('These are the sorted products', sortedProducts);
+    return sortedProducts
+  }
+
+  useEffect(() => {
+    console.log('These are the products coming from assets', products);
+
+    const sortedSimilars = SortProduct(products, product.category)
+
+    setSimilarProducts(sortedSimilars)
+    console.log('These are the simlilar products ready to render', similarProducts);
+    
+  }, [])
 
   return (
 
@@ -132,14 +157,16 @@ const OneProduct = ({ product }) => {
         </div>
 
         {/* THIS IS THE SECTION FOR SUGGESTED PRODUCTS */}
-        <div className='you-might-like'>
-           <h2 className='p-3'>You might like</h2>
+        <div className='you-might-like my-4'>
+          <h4 className='fw-bold p-3'>You might like</h4>
 
-           <div className='yml-main'>
-              <div className=''>
-
-              </div>
-           </div>
+          <div className='yml-main px-3'>
+            {
+              similarProducts?.map((similarProduct, index) => (
+                <OneProductBox key={index} product={similarProduct} />
+              ))
+            }
+          </div>
         </div>
       </div>
     </>

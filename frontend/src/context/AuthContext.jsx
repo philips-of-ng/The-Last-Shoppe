@@ -12,6 +12,8 @@ export const AuthProvider = ({ children }) => {
     const storedUser = JSON.parse(localStorage.getItem('user'))
     if (storedUser) {
       setUser(storedUser)
+      console.log('User has been inported from local storage', storedUser);
+      
     }
 
     const trials = JSON.parse(localStorage.getItem('pwTrials'))

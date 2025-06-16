@@ -1,19 +1,19 @@
 import React, { useContext } from 'react'
-import '../css/one-product-s1.css'
-import { ShopContext } from '../context/ShopContext'
+import '../css/one-product-box.css'
+// import { ShopContext } from '../context/ShopContext'
 
 
-const OneProductBox = ({ image, name, price }) => {
+const OneProductBox = ({ product }) => {
 
-  const { currency } = useContext(ShopContext)
+  // const { currency } = useContext(ShopContext)
 
   return (
     <div className='one-product-box'>
-      <img src={image} alt="" />
+      <img src={product.image[0]} alt="" />
 
-      <p>{name}</p>
+      <p>{product.name}</p>
 
-      <h4>{currency}{price}</h4>
+      <h4>${product.price}</h4>
     </div>
   )
 }

@@ -35,7 +35,7 @@ const Start = () => {
                   <div>
 
                     <div className='center-circle'>
-                      <img src={assets.first_logo} alt="" />
+                      <img src={asset_images.first_logo} alt="" />
                     </div>
                     <h1 className='pt-text'>Shoppe</h1>
                     <p>We've got everything you need. Right at your fingertips.</p>
@@ -50,7 +50,7 @@ const Start = () => {
 
                   <div className='h-ac'>
                     <p>Already have an account?</p>
-                    <button onClick={() => { setDisplay('login') }}><img src={assets.right_arrow} alt="" /></button>
+                    <button onClick={() => { setDisplay('login') }}><img src={asset_images.right_arrow} alt="" /></button>
                   </div>
 
                 </div>
