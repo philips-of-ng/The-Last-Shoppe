@@ -1,0 +1,47 @@
+:root {
+  --the-blue: #004CFF;
+  --the-light-blue: #DFE9FF;
+}
+
+
+/*--------------- SLIDER CSS------------------ */
+.home-slider {
+  /* border: 2px solid red; */
+  width: 100% !important;
+  height: fit-content;
+}
+
+
+.home-slider .one-slide {
+  width: 100% !important;
+  height: 250px !important;
+  /* border: 2px solid blue; */
+}
+
+.home-slider .one-slide img {
+  width: 100%;
+  height: 100% !important;
+  border-radius: 18px;
+  object-fit: cover;
+  object-position: right;
+}
+
+.slick-dots {
+  /* background-color: blue !important; */
+}
+
+.slick-dots > .slick-active > button::before {
+  width: 15px !important;
+  height: 15px !important;
+  border-radius: 100%;
+  background-color: var(--the-blue) !important;
+  content: '' !important;
+}
+
+.slick-dots > li > button::before {
+  width: 15px !important;
+  height: 15px !important;
+  border-radius: 100%;
+  background-color: var(--the-blue) !important;
+  content: '' !important;
+}

@@ -1,4 +1,5 @@
 import React from 'react'
+import '../css/home.css'
 import NavBar from '../components/NavBar'
 
 import Slider from 'react-slick'
@@ -24,7 +25,8 @@ const Home = () => {
       <NavBar />
 
       <div className='home-content'>
-        <section className='home-section-one'>
+        {/* HERO CAROUSEL SECTION */}
+        <section className='home-section-one p-3'>
           <Slider className='home-slider' {...sliderSettings}>
             <div className='one-slide'><img src={asset_images.shoppe_banner} alt="" /></div>
             <div className='one-slide'><img src={asset_images.shoppe_banner} alt="" /></div>
@@ -33,6 +35,12 @@ const Home = () => {
             <div className='one-slide'><img src={asset_images.shoppe_banner} alt="" /></div>
           </Slider>
         </section>
+
+
+        <section className='categories-section'>
+          
+        </section>
+
       </div>
 
     </>
