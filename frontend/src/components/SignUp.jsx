@@ -148,11 +148,11 @@ const SignUp = ({ setDisplay }) => {
     <div className="sign-up fade-in">
 
       <div className='sb-1'>
-        <img src={assets.signup_bubble_01} alt="" />
+        <img src={asset_images.signup_bubble_01} alt="" />
       </div>
 
       <div className='sb-2'>
-        <img src={assets.signup_bubble_02} alt="" />
+        <img src={asset_images.signup_bubble_02} alt="" />
       </div>
 
 
@@ -172,7 +172,7 @@ const SignUp = ({ setDisplay }) => {
               <label htmlFor="image">
                 <img
                   className="input-picture"
-                  src={inputPicture == null ? assets.upload_image : inputPicture}
+                  src={inputPicture == null ? asset_images.upload_image : inputPicture}
                   alt="Upload"
                 />
               </label>
@@ -182,7 +182,7 @@ const SignUp = ({ setDisplay }) => {
                 <img
                   title="Remove Image"
                   className="input-picture-close"
-                  src={assets.close_icon}
+                  src={asset_images.close_icon}
                   alt="Remove"
                   onClick={() => {
                     setInputPicture(null);

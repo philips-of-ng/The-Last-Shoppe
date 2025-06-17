@@ -24,6 +24,7 @@ function App() {
   }, [user]);
 
   const testProduct = products.slice(1, 2)[0]
+  
   console.log('These are the assets imported in the APP.JSX file', testProduct);
 
   const RouteHandler = ({ user }) => {

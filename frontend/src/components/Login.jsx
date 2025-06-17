@@ -120,22 +120,22 @@ const Login = ({ setDisplay }) => {
     <div className='login fade-in'>
 
       <div className='lb-1'>
-        <img src={assets.login_bubble_01} alt="" />
+        <img src={asset_images.login_bubble_01} alt="" />
       </div>
 
       <div className='lb-2'>
-        <img src={assets.login_bubble_02} alt="" />
+        <img src={asset_images.login_bubble_02} alt="" />
       </div>
 
       {
         collectedInfo.nil == 'yes' ? (
           <>
             <div className='lb-3'>
-              <img src={assets.login_bubble_03} alt="" />
+              <img src={asset_images.login_bubble_03} alt="" />
             </div>
 
             <div className='lb-4'>
-              <img src={assets.login_bubble_04} alt="" />
+              <img src={asset_images.login_bubble_04} alt="" />
             </div>
           </>
         ) : (
@@ -212,7 +212,7 @@ const Login = ({ setDisplay }) => {
 
               <div className='h-ac'>
                 <p>Forgot password?</p>
-                <button onClick={() => { setDisplay('fgt-password') }}><img src={assets.right_arrow} alt="" /></button>
+                <button onClick={() => { setDisplay('fgt-password') }}><img src={asset_images.right_arrow} alt="" /></button>
               </div>
 
             </div>
