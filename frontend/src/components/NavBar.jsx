@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import '../css/navbar.css'
 import { assets_2 } from '../assets/assets/assets'
 import { asset_images } from '../assets/images/images'
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 const NavBar = () => {
 
@@ -14,10 +14,10 @@ const NavBar = () => {
 
   return (
     <div className='navbar'>
-      <div className='logo-div'>
+      <Link to={'/'} className='logo-div'>
         <img src={asset_images.first_logo} alt="" />
         <h3>Shoppe<sup>+</sup></h3>
-      </div>
+      </Link>
 
       <div className='nav-div'>
         <button className='cart-btn'><i className="fa-solid fa-bag-shopping"></i> <span>4</span></button>

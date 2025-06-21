@@ -9,12 +9,15 @@ import { AuthProvider } from './context/AuthContext.jsx';
 
 import './index.css'
 import App from './App.jsx'
+import { ShopProvider } from './context/ShopContext.jsx';
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <AuthProvider>
-      <ToastContainer />
-      <App />
+      <ShopProvider>
+        <ToastContainer />
+        <App />
+      </ShopProvider>
     </AuthProvider>
   </BrowserRouter>,
 )

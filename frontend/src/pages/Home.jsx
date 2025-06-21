@@ -6,6 +6,7 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { asset_images } from '../assets/images/images';
+import Categories from '../components/Categories';
 
 const Home = () => {
 
@@ -25,6 +26,7 @@ const Home = () => {
       <NavBar />
 
       <div className='home-content'>
+
         {/* HERO CAROUSEL SECTION */}
         <section className='home-section-one p-3'>
           <Slider className='home-slider' {...sliderSettings}>
@@ -37,8 +39,22 @@ const Home = () => {
         </section>
 
 
-        <section className='categories-section'>
-          
+
+        <section className='categories-section p-2'>
+          <Categories />
+        </section>
+
+
+        <section>
+          <div className='d-flex align-items-center justify-content-between'>
+            <h3 className='fw-bold'>Categories</h3>
+
+            <span className='blue-line'></span>
+          </div>
+
+          <div>
+
+          </div>
         </section>
 
       </div>

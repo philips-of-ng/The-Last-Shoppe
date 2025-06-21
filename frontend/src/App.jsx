@@ -13,6 +13,7 @@ import Home from './pages/Home';
 // Component Testing
 import OneProduct from './components/OneProductPage';
 import { products } from './assets/assets/assets';
+import { ShopContext } from './context/ShopContext';
 
 function App() {
 
@@ -24,7 +25,7 @@ function App() {
   }, [user]);
 
   const testProduct = products.slice(1, 2)[0]
-  
+
   console.log('These are the assets imported in the APP.JSX file', testProduct);
 
   const RouteHandler = ({ user }) => {
