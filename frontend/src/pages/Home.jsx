@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import '../css/home.css'
 import NavBar from '../components/NavBar'
 
@@ -7,6 +7,8 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { asset_images } from '../assets/images/images';
 import Categories from '../components/Categories';
+import { ShopContext } from '../context/ShopContext';
+import { assets_2 } from '../assets/assets/assets';
 
 const Home = () => {
 
@@ -19,6 +21,8 @@ const Home = () => {
     autoplay: true,
     autoplaySpeed: 3000
   }
+
+  const { bestSellers } = useContext(ShopContext)
 
 
   return (
@@ -45,14 +49,38 @@ const Home = () => {
         </section>
 
 
-        <section>
+        <section className='top-products p-3'>
+
           <div className='d-flex align-items-center justify-content-between'>
-            <h3 className='fw-bold'>Categories</h3>
+            <h3 className='fw-bold'>Top Products</h3>
 
             <span className='blue-line'></span>
           </div>
 
-          <div>
+          <div className='tp-main'>
+
+            {
+              bestSellers.map((item, index) => (
+                <>
+                  <div key={index} className='one-top-product'>
+                    <img key={index} src={item.image[0]} alt="" />
+                  </div>
+                </>
+              ))
+            }
+
+            {/* PROTOTYPE OF ITEMS IN THIS SECTION */}
+
+            <div className='one-top-product'>
+              <img src={assets_2.shoppe_banner} alt="" />
+            </div>
+
+            {/* see more button */}
+
+            <div className='one-top-product'>
+              <img style={{ width: '50%', height: '50%' }} src={assets_2.dropdown_icon} alt="" />
+            </div>
+
 
           </div>
         </section>
