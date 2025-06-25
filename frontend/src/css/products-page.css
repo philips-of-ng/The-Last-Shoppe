@@ -1,0 +1,44 @@
+:root {
+  --the-blue: #004cff;
+  --the-light-blue: #dee8ff;
+  --light-grey: rgb(240, 240, 240);
+}
+
+.sortbar {
+  height: 70px;
+  width: 100%;
+  /* border: 2px solid green; */
+  display: flex;
+  justify-content: space-between;
+}
+
+.sortbar div {
+  flex: 2;
+  /* border: 2px solid red; */
+  display: flex;
+  align-items: center;
+}
+
+.sortbar .classes {
+  height: 100%;
+  flex: 8;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
+  overflow-x: scroll;
+}
+
+.classes button {
+  padding: 8px 22px;
+  height: fit-content !important;
+  border-radius: 20px;
+  border: none;
+}
+
+.active-filter {
+  background-color: var(--the-light-blue);
+}
+
+
+

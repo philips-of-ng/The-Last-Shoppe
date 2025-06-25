@@ -5,15 +5,16 @@ import NavBar from './NavBar';
 import OneProductBox from './OneProductBox';
 
 import { products } from '../assets/assets/assets';
+import { useParams } from 'react-router-dom';
 
-const OneProduct = ({ product }) => {
+const OneProduct = () => {
 
-  useEffect(() => {
-    console.log('This is the test product', product);
-  }, [])
-
-  const testProduct = products.slice(0, 1)[0]
-  console.log('This is the YML product for test', testProduct);
+  const productId = useParams()
+  console.log('This is the product ID', productId.id);
+  
+  const product = products.find((item) => item._id == productId.id)
+  console.log('This is the product found', product);
+  
 
   const [mainImage, setMainImage] = useState(product.image[0])
   const [activeSize, setActiveSize] = useState(product.sizes[0])

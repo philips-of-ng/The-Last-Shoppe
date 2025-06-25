@@ -14,6 +14,7 @@ import Home from './pages/Home';
 import OneProduct from './components/OneProductPage';
 import { products } from './assets/assets/assets';
 import { ShopContext } from './context/ShopContext';
+import ProductsPage from './pages/ProductsPage';
 
 function App() {
 
@@ -39,6 +40,8 @@ function App() {
       <Routes>
         {/* This is the original code */}
         <Route path='/*' element={<RouteHandler user={user} />} />
+        <Route path='/products' element={<ProductsPage />} />
+        <Route path='/products/:id' element={<OneProduct />} />
 
         {/* This is just for testing components */}
         {/* <Route path='/*' element={<OneProduct product={testProduct} />} /> */}

@@ -9,6 +9,7 @@ import { asset_images } from '../assets/images/images';
 import Categories from '../components/Categories';
 import { ShopContext } from '../context/ShopContext';
 import { assets_2 } from '../assets/assets/assets';
+import OneProductBox from '../components/OneProductBox';
 
 const Home = () => {
 
@@ -70,10 +71,9 @@ const Home = () => {
             }
 
             {/* PROTOTYPE OF ITEMS IN THIS SECTION */}
-
-            <div className='one-top-product'>
+            {/* <div className='one-top-product'>
               <img src={assets_2.shoppe_banner} alt="" />
-            </div>
+            </div> */}
 
             {/* see more button */}
 
@@ -85,6 +85,44 @@ const Home = () => {
           </div>
         </section>
 
+
+        {/* NEW ITEMS SECTION */}
+        <section className='p-3'>
+
+          <div className='d-flex align-items-center justify-content-between'>
+            <h3 className='fw-bold'>New Items</h3>
+
+            <span className='blue-line'></span>
+          </div>
+
+          <div className='ni-main'>
+            {/* TEST THE PRODUCT BOX WITH THE FIRST BESTSELLER */}
+            <OneProductBox product={bestSellers[0]} />
+            <OneProductBox product={bestSellers[0]} />
+            <OneProductBox product={bestSellers[0]} />
+            <OneProductBox product={bestSellers[0]} />
+          </div>
+
+        </section>
+
+
+
+        {/* JUST FOR YOU SECTION */}
+        <section className='p-3'>
+          <div className='d-flex align-items-center justify-content-between'>
+            <h3 className='fw-bold'>New Items</h3>
+
+            <span className='blue-line'></span>
+          </div>
+          
+          <div className='jfy-main'>
+            <OneProductBox product={bestSellers[0]} />
+            <OneProductBox product={bestSellers[0]} />
+            <OneProductBox product={bestSellers[0]} />
+            <OneProductBox product={bestSellers[0]} />
+          </div>
+
+        </section>
       </div>
 
     </>

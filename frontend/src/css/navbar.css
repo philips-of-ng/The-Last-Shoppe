@@ -9,7 +9,8 @@
   width: 100%;
   /* border: 2px solid green; */
   position: sticky;
-  top: -1px;
+  top: -2px;
+  z-index: 1000;
   background-color: white;
   display: flex;
   align-items: center;
