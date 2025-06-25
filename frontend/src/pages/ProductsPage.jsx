@@ -1,18 +1,41 @@
 import React, { useEffect, useState } from 'react'
 import '../css/products-page.css'
 import NavBar from '../components/NavBar'
+import { products } from '../assets/assets/assets'
+import OneProductBox from '../components/OneProductBox'
 
 const ProductsPage = () => {
 
   const [filters, setFilters] = useState([])
+  const [filteredProducts, setFilteredProducts] = useState([])
 
+  // COMPLICATED FUNCTION --- DO NOT TOUCH
+  // COMPLICATED FUNCTION --- DO NOT TOUCH
+  // COMPLICATED FUNCTION --- DO NOT TOUCH
   const applyFilters = (filters) => {
     console.log('This is the list of filters applied', filters);
-    
-  } 
+    // console.log('These are the products meant to be filtered', products);
+
+    const filteredProducts = products.filter((product) => {
+      return (
+        filters.includes(product.category.toLowerCase()) || filters.includes(product.subCategory.toLowerCase())
+      )
+    })
+
+    if (filters.includes('bestseller')) {
+      const bestRefilteredProducts = filteredProducts.filter((product) => product.bestseller)
+      console.log('These are the best seller filterd products', bestRefilteredProducts);
+      return bestRefilteredProducts
+    } else {
+      return filteredProducts
+    }
+
+  }
 
   useEffect(() => {
-    applyFilters(filters)
+    const finalFiltered = applyFilters(filters)
+    setFilteredProducts(finalFiltered)
+    console.log('These are the end product of the whole filtering process', finalFiltered);
   }, [filters])
 
 
@@ -85,21 +108,28 @@ const ProductsPage = () => {
 
           <button
             onClick={() => {
-              if (filters.includes('children')) {
+              if (filters.includes('kids')) {
                 const updatedFilter = filters.filter(filter => filter !== 'children');
                 setFilters(updatedFilter);
               } else {
-                setFilters(prev => [...prev, 'children']);
+                setFilters(prev => [...prev, 'kids']);
               }
             }}
-            className={`${filters.includes('children') ? 'active-filter' : ''}`}
+            className={`${filters.includes('kids') ? 'active-filter' : ''}`}
           >
             Children
           </button>
 
-
-
         </div>
+      </div>
+
+      
+      <div className='product-lister p-3'>
+        {
+          filteredProducts.map((product, index) => (
+            <OneProductBox key={product._id} product={product} />
+          ))
+        }
       </div>
     </div>
   )

@@ -40,5 +40,8 @@
   background-color: var(--the-light-blue);
 }
 
-
+.product-lister {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
 
