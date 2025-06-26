@@ -16,7 +16,14 @@ const ProductsPage = () => {
     console.log('This is the list of filters applied', filters);
     // console.log('These are the products meant to be filtered', products);
 
+    const int_bestseller = []
+
     const filteredProducts = products.filter((product) => {
+
+      if (filters.includes('bestseller')) {
+        int_bestseller = products.filter((product) => {product.bestseller})
+      }
+
       return (
         filters.includes(product.category.toLowerCase()) || filters.includes(product.subCategory.toLowerCase())
       )
@@ -123,12 +130,19 @@ const ProductsPage = () => {
         </div>
       </div>
 
-      
+
       <div className='product-lister p-3'>
         {
-          filteredProducts.map((product, index) => (
-            <OneProductBox key={product._id} product={product} />
-          ))
+
+          filters.length > 0 ? (
+            filteredProducts.map((product, index) => (
+              <OneProductBox key={product._id} product={product} />
+            ))
+          ) : (
+            products.map((product, index) => (
+              <OneProductBox key={product._id} product={product} />
+            ))
+          )
         }
       </div>
     </div>
