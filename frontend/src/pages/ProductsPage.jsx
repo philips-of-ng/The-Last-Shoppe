@@ -22,6 +22,8 @@ const ProductsPage = () => {
 
       if (filters.includes('bestseller')) {
         int_bestseller = products.filter((product) => {product.bestseller})
+
+        // continue by now filtering only the bestseller henceforth
       }
 
       return (
