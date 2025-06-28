@@ -16,8 +16,8 @@ const OneProductBox = ({ product }) => {
       <div className='image-box'>
         <img src={product.image[0]} alt="" />
         {
-          product.discounted ? (
-            <p className='discount'>-25%</p>
+          product.discount ? (
+            <p className='discount'>{`-${product.discount}%`}</p>
           ) : ''
         }
       </div>
@@ -25,10 +25,12 @@ const OneProductBox = ({ product }) => {
       <p>{product.name}</p>
 
       <div className='prices'>
-        <h4>${product.price}</h4>
+        <h4>
+          { `$${product.discount ? product.price - (product.discount / 100) * product.price : product.price}` }
+        </h4>
         {
-          product.discounted ? (
-            <h4 className='old-price'>${product.price}</h4>
+          product.discount ? (
+            <h4 className='old-price'>{`$${product.price}`}</h4>
           ) : ''
         }
       </div>

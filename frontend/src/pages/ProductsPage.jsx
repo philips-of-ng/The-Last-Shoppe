@@ -10,36 +10,37 @@ const ProductsPage = () => {
   const [filteredProducts, setFilteredProducts] = useState([])
 
   // COMPLICATED FUNCTION --- DO NOT TOUCH
-  // COMPLICATED FUNCTION --- DO NOT TOUCH
-  // COMPLICATED FUNCTION --- DO NOT TOUCH
   const applyFilters = (filters) => {
     console.log('This is the list of filters applied', filters);
-    // console.log('These are the products meant to be filtered', products);
+    console.log('These are the products meant to be filtered', products);
 
-    const int_bestseller = []
+    let filteredProducts = products;
 
-    const filteredProducts = products.filter((product) => {
+    // Handle category/subCategory filtering
+    const categoryFilters = filters.filter(f =>
+      ['men', 'women', 'kids'].includes(f)
+    );
 
-      if (filters.includes('bestseller')) {
-        int_bestseller = products.filter((product) => {product.bestseller})
-
-        // continue by now filtering only the bestseller henceforth
-      }
-
-      return (
-        filters.includes(product.category.toLowerCase()) || filters.includes(product.subCategory.toLowerCase())
-      )
-    })
-
-    if (filters.includes('bestseller')) {
-      const bestRefilteredProducts = filteredProducts.filter((product) => product.bestseller)
-      console.log('These are the best seller filterd products', bestRefilteredProducts);
-      return bestRefilteredProducts
-    } else {
-      return filteredProducts
+    if (categoryFilters.length > 0) {
+      filteredProducts = filteredProducts.filter((product) =>
+        categoryFilters.includes(product.category?.toLowerCase()) ||
+        categoryFilters.includes(product.subCategory?.toLowerCase())
+      );
     }
 
-  }
+    // Handle discount filter
+    if (filters.includes('discount')) {
+      filteredProducts = filteredProducts.filter((product) => product.discount);
+    }
+
+    // Handle bestseller filter
+    if (filters.includes('bestseller')) {
+      filteredProducts = filteredProducts.filter((product) => product.bestseller);
+    }
+
+    return filteredProducts;
+  };
+
 
   useEffect(() => {
     const finalFiltered = applyFilters(filters)
@@ -61,16 +62,16 @@ const ProductsPage = () => {
 
           <button
             onClick={() => {
-              if (filters.includes('latest')) {
-                const updatedFilter = filters.filter(filter => filter !== 'latest');
+              if (filters.includes('discount')) {
+                const updatedFilter = filters.filter(filter => filter !== 'discount');
                 setFilters(updatedFilter);
               } else {
-                setFilters(prev => [...prev, 'latest']);
+                setFilters(prev => [...prev, 'discount']);
               }
             }}
-            className={`${filters.includes('latest') ? 'active-filter' : ''}`}
+            className={`${filters.includes('discount') ? 'active-filter' : ''}`}
           >
-            Latest
+            Discounted
           </button>
 
           <button
@@ -118,7 +119,7 @@ const ProductsPage = () => {
           <button
             onClick={() => {
               if (filters.includes('kids')) {
-                const updatedFilter = filters.filter(filter => filter !== 'children');
+                const updatedFilter = filters.filter(filter => filter !== 'kids');
                 setFilters(updatedFilter);
               } else {
                 setFilters(prev => [...prev, 'kids']);
