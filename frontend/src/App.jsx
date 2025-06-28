@@ -41,6 +41,7 @@ function App() {
         {/* This is the original code */}
         <Route path='/*' element={<RouteHandler user={user} />} />
         <Route path='/products' element={<ProductsPage />} />
+        <Route path='/products/:category' element={<ProductsPage />} />
         <Route path='/products/:id' element={<OneProduct />} />
 
         {/* This is just for testing components */}

@@ -3,8 +3,23 @@ import '../css/products-page.css'
 import NavBar from '../components/NavBar'
 import { products } from '../assets/assets/assets'
 import OneProductBox from '../components/OneProductBox'
+import { useParams } from 'react-router-dom'
 
 const ProductsPage = () => {
+
+  const param = useParams()
+  const browsed_category = param.category
+
+  useEffect(() => {
+    if (browsed_category) {
+      const cleanCategory = browsed_category.replace('c', '').replace('-', '').toLowerCase();
+      setFilters([cleanCategory]); // 👈 Wrap in array
+    }
+  }, []);
+
+
+  console.log('param gotten from url', param);
+
 
   const [filters, setFilters] = useState([])
   const [filteredProducts, setFilteredProducts] = useState([])
@@ -47,6 +62,7 @@ const ProductsPage = () => {
     setFilteredProducts(finalFiltered)
     console.log('These are the end product of the whole filtering process', finalFiltered);
   }, [filters])
+
 
 
   return (

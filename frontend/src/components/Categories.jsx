@@ -3,10 +3,13 @@ import '../css/categories.css'
 
 import { useContext } from 'react'
 import { ShopContext } from '../context/ShopContext.jsx'
+import { useNavigate } from 'react-router-dom'
 
 const Categories = () => {
 
   const { categories } = useContext(ShopContext)
+
+  const navigate = useNavigate()
 
   const getRepImages = (array) => {
     const repImages = []
@@ -31,7 +34,9 @@ const Categories = () => {
         {
           categories.map((item, index) => (
             <>
-              <div key={index} className="one-category">
+              <div key={index} className="one-category" onClick={() => {
+                navigate(`/products/c-${item.name}`)
+              }}>
                 <div className='one-cat-up'>
                   {/* complicated code, dont touch */}
                   {

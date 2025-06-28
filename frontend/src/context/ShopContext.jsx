@@ -32,7 +32,7 @@ export const ShopProvider = ({ children }) => {
     const updatedCategories = [
       { name: 'Men', length: men.length, products: men },
       { name: 'Women', length: women.length, products: women },
-      { name: 'Children', length: kids.length, products: kids },
+      { name: 'Kids', length: kids.length, products: kids },
       { name: 'Best Sellers', length: best.length, products: best },
     ];
     setCategories(updatedCategories);
