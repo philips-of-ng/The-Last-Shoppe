@@ -2,14 +2,17 @@ import React, { useEffect, useRef, useState } from 'react'
 import '../css/navbar.css'
 import { assets_2 } from '../assets/assets/assets'
 import { asset_images } from '../assets/images/images'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import Logout from './Logout'
 
 
 const NavBar = () => {
-  const location = useLocation()
+  const location = useLocation().pathname
   useEffect(() => {
     console.log('This is the current location of the app according to the navbar', location);
   }, [])
+
+  const navigate = useNavigate()
 
   const [ocvActive, setOcvActive] = useState('')
   const inner_offCanvasRef = useRef()
@@ -67,6 +70,9 @@ const NavBar = () => {
 
   return (
     <>
+
+      <Logout />
+
       <div className='navbar'>
         <Link to={'/'} className='logo-div'>
           <img src={asset_images.first_logo} alt="" />
@@ -99,46 +105,74 @@ const NavBar = () => {
             </div>
 
             <div className='ocv-mid'>
-              <button className='one-ocv-btn active-ocv-btn'>
+              <button
+                className={`one-ocv-btn ${location === '/' ? 'active-ocv-btn' : ''}`}
+                onClick={() => navigate('/')}
+              >
                 <span>Home</span>
-                <i class='bxr  bx-home-circle'></i>
+                <i className='bxr bx-home-circle'></i>
               </button>
 
-              <button className='one-ocv-btn'>
+              <button
+                className={`one-ocv-btn ${location.startsWith('/products') ? 'active-ocv-btn' : ''}`}
+                onClick={() => navigate('/products')}
+              >
                 <span>Products</span>
-                <i class='bxr  bx-t-shirt'></i>
+                <i className='bxr bx-t-shirt'></i>
               </button>
 
-              <button className='one-ocv-btn'>
+              <button
+                className={`one-ocv-btn ${location.startsWith('/cart') ? 'active-ocv-btn' : ''}`}
+                onClick={() => navigate('/cart')}
+              >
                 <span>My Cart</span>
-                <i class='bxr  bx-shopping-bag-alt'></i>
+                <i className='bxr bx-shopping-bag-alt'></i>
               </button>
 
-              <button className='one-ocv-btn'>
+              <button
+                className={`one-ocv-btn ${location.startsWith('/profile') ? 'active-ocv-btn' : ''}`}
+                onClick={() => navigate('/profile')}
+              >
                 <span>Profile</span>
-                <i class='bxr  bx-user-circle'></i>
+                <i className='bxr bx-user-circle'></i>
               </button>
 
-              <button className='one-ocv-btn'>
+              <button
+                className={`one-ocv-btn ${location.startsWith('/discounts') ? 'active-ocv-btn' : ''}`}
+                onClick={() => navigate('/discounts')}
+              >
                 <span>Discounts</span>
-                <i class='bxr  bx-piggy-bank'></i>
+                <i className='bxr bx-piggy-bank'></i>
               </button>
             </div>
 
             <div className="ocv-bottom">
-              <button className='one-ocv-btn'>
+              <button
+                className={`one-ocv-btn ${location.startsWith('/settings') ? 'active-ocv-btn' : ''}`}
+                onClick={() => navigate('/settings')}
+              >
                 <span>Settings</span>
-                <i class='bxr  bx-cog'></i>
+                <i className='bxr bx-cog'></i>
               </button>
 
-              <button className='one-ocv-btn'>
+              <button
+                className='one-ocv-btn'
+                onClick={() => {
+
+                }}
+              >
                 <span>Logout</span>
-                <i class='bxr  bx-arrow-out-right-square-half'></i>
+                <i className='bxr bx-arrow-out-right-square-half'></i>
               </button>
 
-              <p className='cp'><i class='bxr  bx-copyright'></i> Égúnmogají 2025 <br /> All Rights Reserved</p>
+              <p className='cp'>
+                <i className='bxr bx-copyright'></i>
+                Égúnmogají 2025 <br /> All Rights Reserved
+              </p>
             </div>
           </div>
+
+
         </div>
       </>
 

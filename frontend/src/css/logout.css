@@ -1,0 +1,28 @@
+:root {
+  --the-blue: #004cff;
+  --the-light-blue: #dee8ff;
+  --light-grey: rgb(240, 240, 240);
+
+  --animate-duration: 0.5s !important;
+}
+
+.logout-component {
+  height: 100%;
+  width: 100%;
+  border: 5px solid red;
+  position: fixed;
+  z-index: 5000;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logout {
+  width: 90%;
+  height: 240px;
+  border: 2px solid green;
+  background-color: white;
+  border-radius: 30px;
+  padding: 20p3;
+}
