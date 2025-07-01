@@ -2,6 +2,8 @@
   --the-blue: #004cff;
   --the-light-blue: #dee8ff;
   --light-grey: rgb(240, 240, 240);
+
+  --animate-duration: 0.5s !important;
 }
 
 .navbar {
