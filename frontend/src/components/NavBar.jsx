@@ -4,6 +4,7 @@ import { assets_2 } from '../assets/assets/assets'
 import { asset_images } from '../assets/images/images'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import Logout from './Logout'
+import Prompt from './Prompt'
 
 
 const NavBar = () => {
@@ -71,7 +72,7 @@ const NavBar = () => {
   return (
     <>
 
-      <Logout />
+      <Prompt  />
 
       <div className='navbar'>
         <Link to={'/'} className='logo-div'>

@@ -27,6 +27,7 @@ import cat_shoes_02 from './cat_shoes_02.png';
 import cat_shoes_03 from './cat_shoes_03.png';
 import cat_shoes_04 from './cat_shoes_04.png';
 import shoppe_banner_new from './shoppe_banner.png';
+import prompt_img from './prompt.png'
 
 export const asset_images = {
   first_logo,
@@ -57,4 +58,5 @@ export const asset_images = {
   cat_shoes_03,
   cat_shoes_04,
   shoppe_banner_new,
+  prompt_img,
 };

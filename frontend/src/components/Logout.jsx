@@ -1,15 +1,15 @@
 import React from 'react'
 import '../css/logout.css'
 
-const Logout = () => {
+const Logout = ({ mainPrompt, subPrompt, callBack }) => {
   return (
     <div className='logout-component'>
 
       <div className='logout'>
         <div>
-          <h3 className='fw-bold'>Logout?</h3>
+          <h3 className='fw-bold'>{ mainPrompt }</h3>
 
-          <p>Are you sure you want to logout?</p>
+          <p>{ subPrompt }</p>
         </div>
 
         <div>
