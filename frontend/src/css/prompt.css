@@ -54,3 +54,24 @@
   height: 100%;
   border-radius: 100%;
 }
+
+.prompt-main {
+  height: 100%;
+  /* border: 2px solid red; */
+  padding-top: 70px;
+  text-align: center;
+}
+
+.buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.buttons button {
+  padding: 10px 20px;
+  border-radius: 12px;
+}
+
+

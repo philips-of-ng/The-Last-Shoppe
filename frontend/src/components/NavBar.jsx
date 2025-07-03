@@ -72,7 +72,7 @@ const NavBar = () => {
   return (
     <>
 
-      <Prompt  />
+      <Prompt prompt={'Logout'} subPrompt={'Are you sure you want to Logout?'} callBackText={'Logout'} />
 
       <div className='navbar'>
         <Link to={'/'} className='logo-div'>
