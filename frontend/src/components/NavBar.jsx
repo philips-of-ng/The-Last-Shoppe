@@ -1,13 +1,17 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import '../css/navbar.css'
 import { assets_2 } from '../assets/assets/assets'
 import { asset_images } from '../assets/images/images'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import Logout from './Logout'
 import Prompt from './Prompt'
+import { AuthContext } from '../context/AuthContext'
 
 
 const NavBar = () => {
+
+  const { logout } = useContext(AuthContext)
+
   const location = useLocation().pathname
   useEffect(() => {
     console.log('This is the current location of the app according to the navbar', location);
@@ -69,10 +73,24 @@ const NavBar = () => {
     }
   }
 
+  const [attemptLogout, setAttemptLogout] = useState(false)
+  const cancelLogoutAttempt = () => {
+    setTimeout(() => {
+      setAttemptLogout(false)
+    }, 1000);
+  }
+
+
   return (
     <>
 
-      <Prompt prompt={'Logout'} subPrompt={'Are you sure you want to Logout?'} callBackText={'Logout'} />
+      {
+        attemptLogout && (
+          <>
+            <Prompt prompt={'Logout'} subPrompt={'Are you sure you want to Logout?'} callBackText={'Logout'} cancelFunction={cancelLogoutAttempt} callBack={logout} />
+          </>
+        )
+      }
 
       <div className='navbar'>
         <Link to={'/'} className='logo-div'>
@@ -159,6 +177,8 @@ const NavBar = () => {
               <button
                 className='one-ocv-btn'
                 onClick={() => {
+                  setAttemptLogout(true)
+
 
                 }}
               >

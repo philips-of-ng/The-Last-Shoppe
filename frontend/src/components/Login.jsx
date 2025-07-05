@@ -36,7 +36,7 @@ const Login = ({ setDisplay }) => {
   const [userProfile, setUserProfile] = useState({})
 
   const collectEmail = async (e) => {
-    e.preventDefault()
+    // e.preventDefault()
     console.log('This is the email from the ref', emailRef.current.value);
 
     try {
@@ -150,7 +150,11 @@ const Login = ({ setDisplay }) => {
             <div className='login-top'>
               <h1 className='pt-text'>Login</h1>
               <p>Glad to see you back. <i className='bx bx-heart'></i></p>
-              <input ref={emailRef} type="email" placeholder='Email' />
+              <input ref={emailRef} type="email" placeholder='Email' onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                    collectEmail()
+                  }
+              }} />
             </div>
 
             <div className='welcome-actions'>
@@ -183,7 +187,11 @@ const Login = ({ setDisplay }) => {
 
                   <div className="input-div">
 
-                    <input className='my-0' type={passwordVisible ? 'text' : 'password'} placeholder='Password' ref={passwordRef} onChange={() => {
+                    <input className='my-0' onKeyDown={(e) => {
+                      if (e.key === 'Enter') {
+                        handleLogin()
+                      }
+                    }} type={passwordVisible ? 'text' : 'password'} placeholder='Password' ref={passwordRef} onChange={() => {
                       console.log(passwordRef.current.value);
                     }} />
 

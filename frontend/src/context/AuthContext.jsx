@@ -39,11 +39,14 @@ export const AuthProvider = ({ children }) => {
   const login = (userData) => {
     setUser(userData)
     localStorage.setItem('user', JSON.stringify(userData))
+    localStorage.getItem('user')
+    console.log('This is the user info gotten from LS', localStorage.getItem('user'));
   }
 
   const logout = () => {
     setUser(null)
     localStorage.removeItem('user')
+    window.location.reload()
   }
 
   return (
