@@ -23,6 +23,8 @@ const ProductsPage = () => {
 
   const [filters, setFilters] = useState([])
   const [filteredProducts, setFilteredProducts] = useState([])
+  const [semiFinalRendition, setSemiFinalRendition] = useState([])
+  const [finalRendition, setFinalRendition] = useState([])
 
   // COMPLICATED FUNCTION --- DO NOT TOUCH
   const applyFilters = (filters) => {
@@ -31,7 +33,6 @@ const ProductsPage = () => {
 
     let filteredProducts = products;
 
-    // Handle category/subCategory filtering
     const categoryFilters = filters.filter(f =>
       ['men', 'women', 'kids'].includes(f)
     );
@@ -64,6 +65,28 @@ const ProductsPage = () => {
   }, [filters])
 
 
+  //PAGINATION SYSTEM
+  useEffect(() => {
+    if (filteredProducts) {
+      setSemiFinalRendition(filteredProducts)
+    } else {
+      setSemiFinalRendition(products)
+    }
+  }, [filteredProducts, products])
+
+
+  const [currentPage, setCurrentPage] = useState(1)
+  const productsPerPage = 1 //One for testing -- Normally 20
+
+  const indexOfLastProduct = currentPage * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+
+  const totalPages = Math.ceil(semiFinalRendition?.length / productsPerPage)
+
+  const currentProducts = semiFinalRendition.slice(indexOfFirstProduct, indexOfLastProduct)
+
+  console.log('Current Products', currentProducts);
+  
 
   return (
     <div>
@@ -152,6 +175,14 @@ const ProductsPage = () => {
 
       <div className='product-lister p-3'>
         {
+          currentProducts.map((item, index) => (
+            <OneProductBox product={item} key={index} />
+          ))
+        }
+      </div>
+
+      <div className='product-lister p-3'>
+        {
 
           filters.length > 0 ? (
             filteredProducts.map((product, index) => (
@@ -164,6 +195,8 @@ const ProductsPage = () => {
           )
         }
       </div>
+
+
     </div>
   )
 }
