@@ -16,6 +16,9 @@ import { products } from './assets/assets/assets';
 import { ShopContext } from './context/ShopContext';
 import ProductsPage from './pages/ProductsPage';
 
+import Aos from 'aos';
+import 'aos/dist/aos.css'
+
 function App() {
 
   const { user } = useContext(AuthContext);
@@ -24,6 +27,7 @@ function App() {
     document.title = 'Final Project';
     console.log('This is the user from Auth Context', user);
   }, [user]);
+
 
   const testProduct = products.slice(1, 2)[0]
 
@@ -34,6 +38,15 @@ function App() {
     if (user.isAdmin) return <AdminDashboard />;
     return <Home />;
   };
+
+
+  // ------------AOS ANIMATION
+  useEffect(() => {
+    Aos.init({
+      duration: 800,
+      once: true
+    })
+  }, [])
 
   return (
     <>

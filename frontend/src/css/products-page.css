@@ -45,3 +45,19 @@
   grid-template-columns: 1fr 1fr;
 }
 
+.pagin-nav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding-bottom: 50px;
+}
+
+.pagin-nav button {
+  width: 30px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+

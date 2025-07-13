@@ -10,7 +10,7 @@ const OneProductBox = ({ product }) => {
   const navigate = useNavigate()
 
   return (
-    <div className='one-product-box' onClick={() => {
+    <div data-aos="fade-up" className='one-product-box' onClick={() => {
       navigate(`/products/${product._id}`)
     }}>
       <div className='image-box'>

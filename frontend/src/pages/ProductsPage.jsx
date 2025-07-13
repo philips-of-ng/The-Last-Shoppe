@@ -69,14 +69,15 @@ const ProductsPage = () => {
   useEffect(() => {
     if (filteredProducts) {
       setSemiFinalRendition(filteredProducts)
-    } else {
-      setSemiFinalRendition(products)
-    }
+    } 
+    // else {
+    //   setSemiFinalRendition(products)
+    // }
   }, [filteredProducts, products])
 
 
   const [currentPage, setCurrentPage] = useState(1)
-  const productsPerPage = 1 //One for testing -- Normally 20
+  const productsPerPage = 20 //One for testing -- Normally 20
 
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
@@ -85,8 +86,13 @@ const ProductsPage = () => {
 
   const currentProducts = semiFinalRendition.slice(indexOfFirstProduct, indexOfLastProduct)
 
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber)
+    window.scrollTo(0, 0);
+  }
+
   console.log('Current Products', currentProducts);
-  
+
 
   return (
     <div>
@@ -181,7 +187,7 @@ const ProductsPage = () => {
         }
       </div>
 
-      <div className='product-lister p-3'>
+      {/* <div className='product-lister p-3'>
         {
 
           filters.length > 0 ? (
@@ -194,7 +200,18 @@ const ProductsPage = () => {
             ))
           )
         }
+      </div> */}
+
+
+      <div data-aos="fade-up" className='pagin-nav'>
+        {
+          Array.from({ length: totalPages }, (_, index) => (
+            <button key={index} onClick={() => paginate(index + 1)} disabled={currentPage === index + 1}>{index + 1}
+            </button>
+          ))
+        }
       </div>
+
 
 
     </div>
