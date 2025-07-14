@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import '../css/products-page.css'
 import NavBar from '../components/NavBar'
 import { products } from '../assets/assets/assets'
@@ -69,7 +69,7 @@ const ProductsPage = () => {
   useEffect(() => {
     if (filteredProducts) {
       setSemiFinalRendition(filteredProducts)
-    } 
+    }
     // else {
     //   setSemiFinalRendition(products)
     // }
@@ -78,6 +78,7 @@ const ProductsPage = () => {
 
   const [currentPage, setCurrentPage] = useState(1)
   const productsPerPage = 20 //One for testing -- Normally 20
+  const listerRef = useRef()
 
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
@@ -87,9 +88,14 @@ const ProductsPage = () => {
   const currentProducts = semiFinalRendition.slice(indexOfFirstProduct, indexOfLastProduct)
 
   const paginate = (pageNumber) => {
-    setCurrentPage(pageNumber)
-    window.scrollTo(0, 0);
-  }
+    setCurrentPage(pageNumber);
+
+    const offset = 80; // height of your fixed navbar
+    const topPos = listerRef.current.getBoundingClientRect().top + window.pageYOffset - offset;
+
+    window.scrollTo({ top: topPos, behavior: 'smooth' });
+  };
+
 
   console.log('Current Products', currentProducts);
 
@@ -179,7 +185,7 @@ const ProductsPage = () => {
       </div>
 
 
-      <div className='product-lister p-3'>
+      <div className='product-lister p-3' ref={listerRef}>
         {
           currentProducts.map((item, index) => (
             <OneProductBox product={item} key={index} />

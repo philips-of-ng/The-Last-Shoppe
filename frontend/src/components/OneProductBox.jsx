@@ -11,7 +11,7 @@ const OneProductBox = ({ product }) => {
 
   return (
     <div data-aos="fade-up" className='one-product-box' onClick={() => {
-      navigate(`/products/${product._id}`)
+      navigate(`/products/single/${product._id}`)
     }}>
       <div className='image-box'>
         <img src={product.image[0]} alt="" />

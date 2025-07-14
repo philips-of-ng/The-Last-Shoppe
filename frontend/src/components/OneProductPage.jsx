@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import '../css/one-product.css'
 import { asset_images } from '../assets/images/images';
 import NavBar from './NavBar';
@@ -6,8 +6,11 @@ import OneProductBox from './OneProductBox';
 
 import { products } from '../assets/assets/assets';
 import { useParams } from 'react-router-dom';
+import { ShopContext } from '../context/ShopContext';
 
 const OneProduct = () => {
+
+  const { addToCart } = useContext(ShopContext)
 
   const productId = useParams()
   console.log('This is the product ID', productId.id);
@@ -107,7 +110,7 @@ const OneProduct = () => {
             </button>
 
             <button className='buy-now-btn'>Buy Now</button>
-            <button className='add-to-cart'>Add to Cart</button>
+            <button onClick={() => addToCart(product, 1)} className='add-to-cart'>Add to Cart</button>
           </div>
         </div>
 

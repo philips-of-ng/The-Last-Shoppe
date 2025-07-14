@@ -6,11 +6,13 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import Logout from './Logout'
 import Prompt from './Prompt'
 import { AuthContext } from '../context/AuthContext'
+import { ShopContext } from '../context/ShopContext'
 
 
 const NavBar = () => {
 
   const { logout } = useContext(AuthContext)
+  const { totalCartItems } = useContext(ShopContext)
 
   const location = useLocation().pathname
   useEffect(() => {
@@ -99,7 +101,7 @@ const NavBar = () => {
         </Link>
 
         <div className='nav-div'>
-          <button className='cart-btn'><i className="fa-solid fa-bag-shopping"></i> <span>4</span></button>
+          <button className='cart-btn'><i className="fa-solid fa-bag-shopping"></i> <span>{totalCartItems}</span></button>
 
           <button onClick={handleOpenOCV} className='menu-btn'><i className="fa-solid fa-bars"></i></button>
         </div>

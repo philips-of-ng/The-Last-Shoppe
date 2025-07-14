@@ -1,5 +1,6 @@
 import React, { createContext, useEffect, useState } from "react";
 import { products } from "../assets/assets/assets";
+import { exist } from "joi";
 
 export const ShopContext = createContext();
 
@@ -38,9 +39,39 @@ export const ShopProvider = ({ children }) => {
     setCategories(updatedCategories);
 
     console.log('Categories logged in context file', categories);
-    
-
   }, []); // Empty dependency array since products are static
+
+
+  const [cartItems, setCartItems] = useState([])
+  const [totalCartItems, setTotalCartItems] = useState(null)
+
+
+  useEffect(() => {
+    console.log('This is the latest CART', cartItems);
+    const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
+    setTotalCartItems(totalItems)
+
+    localStorage.setItem('cartInfo', {
+      population: totalItems,
+      main: cartItems
+    })
+  }, [cartItems])
+
+
+
+  const addToCart = (product, newQuantity) => {
+    setCartItems((prevItems) => {
+      const existing = prevItems.find((item) => item._id === product._id)
+      if (existing) {
+        return prevItems.map(item =>
+          item._id === product._id ? { ...item, quantity: item.quantity + (newQuantity || 1) } : item
+        )
+      } else {
+        return [...prevItems, { ...product, quantity: 1 }]
+      }
+    })
+
+  }
 
   return (
     <ShopContext.Provider value={{
@@ -51,6 +82,9 @@ export const ShopProvider = ({ children }) => {
       childrenClothing,
       bestSellers,
       categories,
+      cartItems,
+      addToCart,
+      totalCartItems
     }}>
       {children}
     </ShopContext.Provider>

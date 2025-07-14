@@ -55,7 +55,7 @@ function App() {
         <Route path='/*' element={<RouteHandler user={user} />} />
         <Route path='/products' element={<ProductsPage />} />
         <Route path='/products/:category' element={<ProductsPage />} />
-        <Route path='/products/:id' element={<OneProduct />} />
+        <Route path='/products/single/:id' element={<OneProduct />} />
 
         {/* This is just for testing components */}
         {/* <Route path='/*' element={<OneProduct product={testProduct} />} /> */}
