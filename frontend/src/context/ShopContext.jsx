@@ -45,6 +45,22 @@ export const ShopProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([])
   const [totalCartItems, setTotalCartItems] = useState(null)
 
+  useEffect(() => {
+
+    console.log('The raw data', localStorage.getItem('cartInfo'));
+    
+
+    const storedCart = JSON.parse(localStorage.getItem('cartInfo'))
+
+    if (storedCart) {
+      setCartItems(storedCart.main)
+      setTotalCartItems(storedCart.population)
+
+      console.log('SET CART ITEM', storedCart.main);
+      console.log('SET CART POPULATION', storedCart.population);
+      
+    }
+  }, [])
 
   useEffect(() => {
     console.log('This is the latest CART', cartItems);
