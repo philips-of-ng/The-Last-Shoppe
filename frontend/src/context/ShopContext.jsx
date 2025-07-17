@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from "react";
 import { products } from "../assets/assets/assets";
 import { exist } from "joi";
+import { json } from "react-router-dom";
 
 export const ShopContext = createContext();
 
@@ -47,30 +48,22 @@ export const ShopProvider = ({ children }) => {
 
   useEffect(() => {
 
-    console.log('The raw data', localStorage.getItem('cartInfo'));
+    console.log(JSON.parse(localStorage.getItem('cartInfo')));
     
 
-    const storedCart = JSON.parse(localStorage.getItem('cartInfo'))
+    // const temp = JSON.parse(localStorage.getItem('cartInfo'))
 
-    if (storedCart) {
-      setCartItems(storedCart.main)
-      setTotalCartItems(storedCart.population)
-
-      console.log('SET CART ITEM', storedCart.main);
-      console.log('SET CART POPULATION', storedCart.population);
-      
-    }
+    // console.log('TEMP', temp);
+    
   }, [])
+
 
   useEffect(() => {
     console.log('This is the latest CART', cartItems);
     const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
     setTotalCartItems(totalItems)
 
-    localStorage.setItem('cartInfo', {
-      population: totalItems,
-      main: cartItems
-    })
+    localStorage.setItem('cartInfo', JSON.stringify(cartItems))
   }, [cartItems])
 
 
